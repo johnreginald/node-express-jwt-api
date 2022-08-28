@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 async function encryptPassword(password) {
   // encrypt the password with bcrypt and return encrypted string
