@@ -3,8 +3,18 @@ const userService = require("../services/user.service");
 const jwt = require("jsonwebtoken");
 
 const register = async function (req, res) {
-  const user = await userService.createUser(req.body);
-  return res.status(201).json(user);
+  try {
+    const user = await userService.createUser(req.body);
+    return res.status(201).json(user);
+  } catch (error) {
+    return res.status(400).json({
+      errors: [
+        {
+          username: "Username already taken"
+        }
+      ]
+    });
+  }
 }
 
 const login = async function (req, res) {
