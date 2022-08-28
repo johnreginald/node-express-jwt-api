@@ -1,7 +1,7 @@
-const Product = require("../models/product.model");
+const { models } = require("../models/index");
 
 async function createProduct(body) {
-  return await Product.create({
+  return await models.product.create({
     name: body.name,
     price: body.price,
     quantity: body.quantity,

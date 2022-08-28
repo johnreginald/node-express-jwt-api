@@ -1,10 +1,16 @@
-const sequelize = require('../models/index');
-const {DataTypes} = require("sequelize");
+const encryptPassword = require("../helpers/encrypt-password");
 
-module.exports = sequelize.define('user', {
-  username: DataTypes.STRING,
-  email: DataTypes.STRING,
-  password: DataTypes.STRING
-}, {
-  tableName: 'users'
-})
+module.exports = (sequelize, DataTypes) => {
+  sequelize.define('user', {
+    username: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING
+  }, {
+    tableName: 'users',
+    hooks: {
+      beforeCreate: async (user) => {
+        user.password = await encryptPassword(user.password);
+      }
+    }
+  })
+}

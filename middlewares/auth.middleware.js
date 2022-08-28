@@ -12,8 +12,6 @@ const isAuthenticated = () => {
     // verify jwt token
     const token = getJwtToken(req.headers.authorization);
 
-    console.log(token);
-
     if (token) {
       jwt.verify(token, process.env.JWT_SECRET_KEY, (err, decoded) => {
         if (err) {

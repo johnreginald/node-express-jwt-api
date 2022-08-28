@@ -1,8 +1,8 @@
-const User = require("../models/user.model");
+const { models } = require("../models/index");
 const bcrypt = require("bcryptjs");
 
 async function findByUsername(username) {
-  return await User.findOne({
+  return await models.user.findOne({
     where: {
       username: username
     }

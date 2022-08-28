@@ -1,10 +1,9 @@
-const User = require("../models/user.model");
-const encryptPassword = require("../helpers/encrypt-password");
+const { models } = require("../models/index");
 
 async function createUser(body) {
-  return await User.create({
+  return await models.user.create({
     username: body.username,
-    password: await encryptPassword(body.password),
+    password: body.password,
     email: body.email,
   });
 }

@@ -1,7 +1,7 @@
-const Product = require("../models/product.model");
+const { models } = require("../models/index");
 
 async function findAll() {
-  return await Product.findAll();
+  return await models.product.findAll();
 }
 
 module.exports = {
