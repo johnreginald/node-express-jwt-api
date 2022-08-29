@@ -11,16 +11,16 @@ services:
         volumes:
             - ~/docker/mariadb:/var/lib/mysql
         restart: always
-
-    web:
-        build:
-            context: ./
-            target: dev
-        volumes:
-            - .:/src
-        command: npm run start
-        ports:
-            - "3000:3000"
-        environment:
-            NODE_ENV: development
-            DEBUG: nodejs-docker-express:*
+#
+#    web:
+#        build:
+#            context: ./
+#            target: dev
+#        volumes:
+#            - .:/src
+#        command: npm run start
+#        ports:
+#            - "3000:3000"
+#        environment:
+#            NODE_ENV: development
+#            DEBUG: nodejs-docker-express:*
