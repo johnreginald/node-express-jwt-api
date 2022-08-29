@@ -6,12 +6,12 @@ const createProductValidation = require("../validations/create-product.validatio
 const isAuthenticated = require("../middlewares/auth.middleware");
 
 router.get(
-  "/",
+  "/products",
   ProductController.getProducts
 );
 
 router.post(
-  "/",
+  "/products",
   isAuthenticated(),
   validate(createProductValidation),
   ProductController.createProduct
