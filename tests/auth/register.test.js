@@ -25,5 +25,6 @@ describe('Register a user', () => {
 
     // Assert
     expect(response.statusCode).toBe(201);
+    expect(response.body).toHaveProperty('message');
   });
 });

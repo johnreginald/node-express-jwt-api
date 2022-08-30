@@ -5,7 +5,9 @@ const jwt = require("jsonwebtoken");
 const register = async function (req, res) {
   try {
     const user = await UserService.createUser(req.body);
-    return res.status(201).json(user);
+    return res.status(201).json({
+      message: "User created successfully",
+    });
   } catch (error) {
     return res.status(400).json({
       errors: [
