@@ -5,9 +5,9 @@ const encryptPassword = require("../helpers/encrypt-password");
 module.exports = {
   async up (queryInterface) {
     return await queryInterface.bulkInsert('users', [{
-      username: "john",
-      email: "john@gmail.com",
-      password: await encryptPassword("admin1234"),
+      username: "test",
+      email: "test@gmail.com",
+      password: await encryptPassword("test1234"),
       createdAt: new Date(),
       updatedAt: new Date()
     }])

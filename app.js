@@ -1,13 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 
-if (process.env.NODE_ENV === 'production') {
-  require('dotenv').config();
-} else {
-  require('dotenv').config({
-    path: `.env.${process.env.NODE_ENV}`
-  });
-}
+require('dotenv').config();
 
 const apiPath = "/api/v1/";
 const productRouter = require('./routes/product');
